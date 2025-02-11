@@ -1,0 +1,79 @@
+/* Main content styling */
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Space between columns */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Navigation styling */
+.navigation ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+}
+
+.navigation li {
+    list-style: none;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    background-color: #e32524;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navigation a:hover {
+    background-color: #c7241f; /* Darker shade for hover */
+}
+
+/* PDF links styling */
+.pdf-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.pdf-item {
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #e32524;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pdf-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-item img {
+    max-width: 80px;
+    margin-bottom: 10px;
+}
+
+.pdf-item figcaption {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Media Query Adjustments */
+@media only screen and (max-width: 600px) {
+    .main-content {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .pdf-links {
+        grid-template-columns: 1fr; /* Single column for PDF links */
+    }
+    
+    .navigation ul {
+        flex-direction: column;
+    }
+}

